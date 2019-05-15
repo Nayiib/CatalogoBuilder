@@ -1,11 +1,16 @@
-
 package personajebuilder;
 
-
 public class Personaje {
-    
-    private String raza, tipo;
-   
+
+    public String getAtaque() {
+        return ataque;
+    }
+
+    public void setAtaque(String ataque) {
+        this.ataque = ataque;
+    }
+
+    private String raza, tipo, ataque;
 
     public String getRaza() {
         return raza;
@@ -23,7 +28,4 @@ public class Personaje {
         this.tipo = tipo;
     }
 
-
-   
-    
 }

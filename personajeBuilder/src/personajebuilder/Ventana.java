@@ -7,6 +7,7 @@ public class Ventana extends javax.swing.JFrame {
 
     public Ventana() {
         initComponents();
+        this.setTitle("Catalogo de personajes");
     }
 
     @SuppressWarnings("unchecked")
@@ -20,10 +21,12 @@ public class Ventana extends javax.swing.JFrame {
         _text = new javax.swing.JLabel();
         _tipo = new javax.swing.JComboBox<>();
         _foto = new javax.swing.JLabel();
+        _atacar = new javax.swing.JButton();
+        _text2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(51, 153, 255));
 
         _raza.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Humano", "Elfo", "Orco" }));
 
@@ -38,31 +41,49 @@ public class Ventana extends javax.swing.JFrame {
 
         _text.setText("El personaje creado es: ");
 
-        _tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mago", "Luchador" }));
+        _tipo.setBackground(new java.awt.Color(153, 204, 255));
+        _tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mago", "Luchador", "ingeniero" }));
+
+        _atacar.setText("Atacar");
+        _atacar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                _atacarActionPerformed(evt);
+            }
+        });
+
+        _text2.setText("Accion realizada:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(_text, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(_enviar)
-                    .addComponent(_raza, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(_tipo, 0, 95, Short.MAX_VALUE)
-                    .addComponent(_arma, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(_foto, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(99, 99, 99))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(_text2, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(_text, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(53, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(_enviar)
+                            .addComponent(_raza, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(_tipo, 0, 95, Short.MAX_VALUE)
+                            .addComponent(_arma, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(_atacar))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(_foto, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(110, 110, 110))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(_foto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(86, 86, 86)
                         .addComponent(_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -72,13 +93,14 @@ public class Ventana extends javax.swing.JFrame {
                         .addComponent(_arma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(_enviar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(_foto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(36, 36, 36)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                        .addComponent(_atacar)
+                        .addGap(31, 31, 31)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(_text)
-                .addGap(45, 45, 45))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(_text2)
+                .addGap(38, 38, 38))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -100,14 +122,16 @@ public class Ventana extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void _enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__enviarActionPerformed
-        
+
         int raza = _raza.getSelectedIndex();
         int arma = _arma.getSelectedIndex();
         int tipo = _tipo.getSelectedIndex();
+
         String nom_raza = " ";
         String nom_arma = " ";
         String nom_tipo = " ";
         String img = " ";
+
         if (raza == 0) {
             nom_raza = "Humano";
         }
@@ -135,10 +159,11 @@ public class Ventana extends javax.swing.JFrame {
         Director director = new Director();
         PersonajeBuilder personaje_mago = new PersonajeMagoBuilder();
         PersonajeBuilder personaje_luchador = new PersonajeLuchadorBuilder();
+        PersonajeBuilder personaje_ingeniero = new AdapterCivilEngieener();
 
         if (tipo == 0) {
             director.personajeBuilder(personaje_mago);
-            director.construirPersonaje(nom_raza, nom_arma);
+            director.construirPersonaje(nom_raza, nom_arma, img);
             personaje = director.getPersonaje();
             img = "0" + raza + arma + ".jpg";
             _text.setText("El mago creado es de: " + "Raza " + personaje.getRaza() + " y tiene como arma " + personaje.getTipo() + "");
@@ -150,17 +175,102 @@ public class Ventana extends javax.swing.JFrame {
 
         if (tipo == 1) {
             director.personajeBuilder(personaje_luchador);
-            director.construirPersonaje(nom_raza, nom_arma);
+            director.construirPersonaje(nom_raza, nom_arma, img);
             personaje = director.getPersonaje();
             _text.setText("El luchador creado es de: " + "Raza " + personaje.getRaza() + " y tiene como arma " + personaje.getTipo());
             img = "1" + raza + arma + ".jpg";
-            ImageIcon foto = new ImageIcon(getClass().getResource("/img/"+img));
+            ImageIcon foto = new ImageIcon(getClass().getResource("/img/" + img));
+            ImageIcon icono = new ImageIcon(foto.getImage().getScaledInstance(_foto.getWidth(), _foto.getHeight(), Image.SCALE_DEFAULT));
+            _foto.setIcon(icono);
+        }
+        if (tipo == 2) {
+            director.personajeBuilder(personaje_ingeniero);
+            director.construirPersonaje(nom_raza, nom_arma, img);
+            personaje = director.getPersonaje();
+            _text.setText("El ingeniero creado es de: " + "Raza " + personaje.getRaza() + " y tiene como arma " + personaje.getTipo());
+            img = "2" + raza + arma + ".jpg";
+            ImageIcon foto = new ImageIcon(getClass().getResource("/img/" + img));
             ImageIcon icono = new ImageIcon(foto.getImage().getScaledInstance(_foto.getWidth(), _foto.getHeight(), Image.SCALE_DEFAULT));
             _foto.setIcon(icono);
         }
 
 
     }//GEN-LAST:event__enviarActionPerformed
+
+    private void _atacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__atacarActionPerformed
+        int raza = _raza.getSelectedIndex();
+        int arma = _arma.getSelectedIndex();
+        int tipo = _tipo.getSelectedIndex();
+        
+
+        String nom_raza = " ";
+        String nom_arma = " ";
+        String nom_tipo = " ";
+        String img = " ";
+
+        if (raza == 0) {
+            nom_raza = "Humano";
+        }
+        if (raza == 1) {
+            nom_raza = "Elfo";
+        }
+        if (raza == 2) {
+            nom_raza = "Orco";
+        }
+
+        if (arma == 0) {
+            nom_arma = "Espada";
+        }
+
+        if (arma == 1) {
+            nom_arma = "hechizos";
+        }
+
+        if (arma == 2) {
+            nom_arma = "arco";
+        }
+
+        Personaje personaje;
+        Personaje luchador;
+        Director director = new Director();
+        PersonajeBuilder personaje_mago = new PersonajeMagoBuilder();
+        PersonajeBuilder personaje_luchador = new PersonajeLuchadorBuilder();
+             PersonajeBuilder personaje_ingeniero = new AdapterCivilEngieener();
+
+        if (tipo == 0) {
+            director.personajeBuilder(personaje_mago);
+            director.construirPersonaje(nom_raza, nom_arma, img);
+            personaje = director.getPersonaje();
+            img = "0" + raza + arma + ".jpg";
+            _text2.setText("Accion realizada: por el mago " +  personaje.getRaza() + " y con arma " + personaje.getTipo() + " es atacar ");
+            img = "0" + raza + arma + ".jpg";
+            ImageIcon foto = new ImageIcon(getClass().getResource("/img/" + img));
+            ImageIcon icono = new ImageIcon(foto.getImage().getScaledInstance(_foto.getWidth(), _foto.getHeight(), Image.SCALE_DEFAULT));
+            _foto.setIcon(icono);
+        }
+
+        if (tipo == 1) {
+            director.personajeBuilder(personaje_luchador);
+            director.construirPersonaje(nom_raza, nom_arma, img);
+            personaje = director.getPersonaje();
+            _text2.setText("Accion realizada: por el luchador " + personaje.getRaza() + " y con arma " + personaje.getTipo() + " es atacar"+personaje.getAtaque());
+            img = "1" + raza + arma + ".jpg";
+            ImageIcon foto = new ImageIcon(getClass().getResource("/img/" + img));
+            ImageIcon icono = new ImageIcon(foto.getImage().getScaledInstance(_foto.getWidth(), _foto.getHeight(), Image.SCALE_DEFAULT));
+            _foto.setIcon(icono);
+        }
+        if (tipo == 2) {
+            director.personajeBuilder(personaje_ingeniero);
+            director.construirPersonaje(nom_raza, nom_arma, img);
+            personaje = director.getPersonaje();
+            _text2.setText("El ingeniero creado es de: " + "Raza " + personaje.getRaza() + " y tiene como arma " + personaje.getTipo());
+            img = "2" + raza + arma + ".jpg";
+            ImageIcon foto = new ImageIcon(getClass().getResource("/img/" + img));
+            ImageIcon icono = new ImageIcon(foto.getImage().getScaledInstance(_foto.getWidth(), _foto.getHeight(), Image.SCALE_DEFAULT));
+            _foto.setIcon(icono);
+        }
+
+    }//GEN-LAST:event__atacarActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -196,10 +306,12 @@ public class Ventana extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> _arma;
+    private javax.swing.JButton _atacar;
     private javax.swing.JButton _enviar;
     private javax.swing.JLabel _foto;
     private javax.swing.JComboBox<String> _raza;
     private javax.swing.JLabel _text;
+    private javax.swing.JLabel _text2;
     private javax.swing.JComboBox<String> _tipo;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

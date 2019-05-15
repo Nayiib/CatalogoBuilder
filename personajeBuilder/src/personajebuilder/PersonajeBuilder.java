@@ -11,8 +11,10 @@ public abstract class PersonajeBuilder {
     
     public abstract void construirRaza(String raza);
     public abstract void construirTipo(String arma);
+    public abstract void construirAtaque(String ataque);
     
     public Personaje getPersonaje() { 
+        
         return personaje; 
     }
 } 

@@ -9,10 +9,11 @@ public class Director {
        personajeBuilder = pb; 
    }
    
-   public void construirPersonaje(String raza, String arma){ 
+   public void construirPersonaje(String raza, String arma, String atacar){ 
        personajeBuilder.fabricarNewPersonaje(); 
        personajeBuilder.construirRaza(raza); 
        personajeBuilder.construirTipo(arma); 
+       personajeBuilder.construirAtaque(atacar);
        
    }
     
